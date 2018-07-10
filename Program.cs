@@ -8,7 +8,7 @@ namespace SimpleCalculatorC
         {
             Calculator cal = new Calculator();
             cal.TakeData(out double no1, out string sign, out double no2);
-            cal.ShowInformaton();
+            cal.ShowInformation();
             cal.Ask();
             Console.ReadKey();
         }
@@ -23,34 +23,26 @@ namespace SimpleCalculatorC
         double result;
         public double result()
         {
-            if (sign == "+")
+            switch (sign)
             {
-                result= x * y;
-            }
-            else if (sign == "-")
-            {
-                result= x - y;
-            }
-            else if (sign == "*")
-            {
-                result= x * y;
-            }
-            else if (sign == "/")
-            {
-                result= x / y;
-            }
-            else if (sign == "%")
-            {
-                result= x % y;
-            }
-            else
-            {
-                Console.WriteLine("Wrong sign!");
-            }
+                case "+":
+                    result = no1 + no2;
+                    break;
+                case "-":
+                    result = no1 - no2;
+                    break;
+                case "*":
+                    result = no1 * no2;
+                    break;
+                case "/":
+                    result = no1 / no2;
+                    break;
+             } 
+           
             do {
                 public void TakeData(out double no1, out string sign, out double no2)
                 {
-                    Console.WriteLine("Please enter first number, mathematical operation (+,-,*,/,%) and second number:")
+                    Console.WriteLine("Please enter first number, mathematical operation (+,-,*,/,%) and second number:");
                     Console.WriteLine("Enter first number");
                     no1 = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine("Enter a mathematical operation +,-,*,/,%");
@@ -67,7 +59,7 @@ namespace SimpleCalculatorC
                     Console.WriteLine("Please enter 't' if you want to start over or any other sign to quit");
                     answer = Console.ReadLine();
                 }
-            } while answer == "t";
+            } while (answer == "t");
         }
     
     
